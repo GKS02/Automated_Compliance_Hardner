@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ filename }}</title>
+    <style>
+        body { font-family: monospace; background: #f4f4f4; padding: 20px; }
+        pre {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 { font-family: sans-serif; }
+    </style>
+</head>
+<body>
+    <h2>📄 {{ filename }}</h2>
+    <pre>{{ code }}</pre>
+</body>
+</html>

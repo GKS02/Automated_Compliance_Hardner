@@ -1,0 +1,34 @@
+[
+    {
+        "file": "9e858cfe_BankAccount.java",
+        "status": "SURVIVED"
+    },
+    {
+        "file": "915efa0d_BankAccount.java",
+        "status": "SURVIVED"
+    },
+    {
+        "file": "650a3508_BankAccount.java",
+        "status": "SURVIVED"
+    },
+    {
+        "file": "2bcc120e_BankAccount.java",
+        "status": "SURVIVED"
+    },
+    {
+        "file": "4bd206d0_BankAccount.java",
+        "status": "KILLED"
+    },
+    {
+        "file": "1809058a_BankAccount.java",
+        "status": "KILLED"
+    },
+    {
+        "file": "a46a31dd_BankAccount.java",
+        "status": "KILLED"
+    },
+    {
+        "file": "95a2359e_BankAccount.java",
+        "status": "KILLED"
+    }
+]

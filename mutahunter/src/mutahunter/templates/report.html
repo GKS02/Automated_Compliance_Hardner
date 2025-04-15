@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mutation Testing Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .item {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .mutant-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .mutant-table th, .mutant-table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .mutant-table th {
+            background-color: #e0e0e0;
+        }
+        .mutant-link {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .mutant-link:hover {
+            text-decoration: underline;
+        }
+        .status-killed {
+            color: green;
+            font-weight: bold;
+        }
+        .status-survived {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Report Summary -->
+    <div class="card">
+        <h2>📊 Mutation Testing Report</h2>
+        <div class="item">🎯 Mutation Coverage: {{ report.Mutation_Coverage }}%</div>
+        <div class="item">🦠 Total Mutants: {{ report.Total_Mutants }}</div>
+        <div class="item">🛡️ Survived Mutants: {{ report.Survived_Mutants }}</div>
+        <div class="item">🗡️ Killed Mutants: {{ report.Killed_Mutants }}</div>
+        <div class="item">🕒 Timeout Mutants: {{ report.Timeout_Mutants }}</div>
+        <div class="item">🔥 Compile Errors: {{ report.Compile_Error_Mutants }}</div>
+    </div>
+
+    <!-- Pie Chart
+    <div class="card">
+        <canvas id="mutantPie" width="50" height="50"></canvas>
+    </div> -->
+
+    <!-- Mutant Table -->
+    <div class="card">
+        <h2>🧬 Mutant Status Table</h2>
+        <table class="mutant-table">
+            <thead>
+                <tr>
+                    <th>Mutant File</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file, status in mutant_statuses.items() %}
+                <tr>
+                    <td>
+                        <a class="mutant-link" href="{{ url_for('show_diff', mutant_filename=file) }}">
+                            {{ file }}
+                        </a>
+                    </td>
+                    <td class="{{ 'status-killed' if status == 'KILLED' else 'status-survived' }}">
+                        {{ status }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card mutant-links">
+        <h2>📂 View Source Files</h2>
+        <a href="{{ url_for('view_source', file_key='original') }}">📘 Original Class: BankAccount.java</a>
+        <hr>
+        <a href="{{ url_for('view_source', file_key='test') }}">🧪 Test Class: BankAccountTest.java</a>
+    </div>
+    
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const reportData = {{ report | tojson | safe }};
+
+        const ctx = document.getElementById('mutantPie').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Killed', 'Survived'],
+                datasets: [{
+                    label: 'Mutation Outcome',
+                    data: [reportData.Killed_Mutants, reportData.Survived_Mutants],
+                    backgroundColor: ['#4CAF50', '#FF5252'],
+                    borderWidth: 0.5
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: {
+                        display: true,
+                        text: 'Mutant Kill vs Survival Pie'
+                    }
+                }
+            }
+        });
+    </script> -->
+
+</body>
+</html>

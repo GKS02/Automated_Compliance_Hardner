@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mutant Diff</title>
+    <style>
+        body { font-family: monospace; background-color: #f7f7f7; padding: 20px; }
+        table.diff { width: 100%; border-collapse: collapse; }
+        .diff_header { background: #eaeaea; }
+        .diff_next { background: #f2f2f2; }
+        .diff_add { background: #d4fcbc; }
+        .diff_chg { background: #fff2aa; }
+        .diff_sub { background: #fbb6c2; }
+        td { padding: 4px 8px; }
+    </style>
+</head>
+<body>
+    <h2>🧬 Mutant Diff View</h2>
+    {{ diff | safe }}
+</body>
+</html>

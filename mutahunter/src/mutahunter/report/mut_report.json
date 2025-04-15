@@ -1,0 +1,8 @@
+{
+    "Mutation_Coverage": "50.00%",
+    "Total_Mutants": 8,
+    "Survived_Mutants": 4,
+    "Killed_Mutants": 4,
+    "Timeout_Mutants": 0,
+    "Compile_Error_Mutants": 0
+}

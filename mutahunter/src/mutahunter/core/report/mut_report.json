@@ -1,0 +1,9 @@
+{
+    "Mutation Coverage": "50.00%",
+    "Total Mutants": 6,
+    "Survived Mutants": 3,
+    "Killed Mutants": 3,
+    "Timeout Mutants": 0,
+    "Compile Error Mutants": 1,
+    "Total Cost": 0.0004161
+}
