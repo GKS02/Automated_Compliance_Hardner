@@ -56,11 +56,11 @@ public class BankAccount {
     }
 
     public void executeBatchTransactions(double[] deposits, double[] withdrawals) {
-        for (double deposit : deposits) {
-            deposit(deposit);
+        for (int i=0;i<deposits.length;i++) {
+            deposit(deposits[i]);
         }
-        for (double withdrawal : withdrawals) {
-            withdraw(withdrawal);
+        for (int j=0;j<withdrawals.length;j++) {
+            withdraw(withdrawals[j]);
         }
         transactionHistory.add("Batch transactions executed");
     }
