@@ -21,6 +21,21 @@ def generate_diff(original_path, mutant_path):
     )
     return diff
 
+def generate_diff_1(original_path, mutant_path):
+    with open(original_path, 'r') as f1, open(mutant_path, 'r') as f2:
+        original_lines = f1.readlines()
+        mutant_lines = f2.readlines()
+
+    diff = difflib.HtmlDiff().make_table(
+        original_lines,
+        mutant_lines,
+        fromdesc='Original',
+        todesc='Mutant',
+        context=True,
+        numlines=5
+    )
+    return diff
+
 
 @app.route('/diff/<mutant_filename>')
 def show_diff(mutant_filename):
